@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "PurpleHub",
+  "version": "0.1",
+  "permissions" : ["tabs", "activeTab", "notifications", "webRequest", "webRequestBlocking", "https://*/*", "http://*/*"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "short_name": "PurpleHub",
+  "browser_action": {
+    "default_icon": {
+      "19": "images/logo-purple-19.png",
+      "38": "images/logo-purple-38.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "icons": { 
+    "16": "./images/logo-purple-16.png",
+    "48": "./images/logo-purple-48.png",
+   "128": "./images/logo-purple-128.png" },
+   "background": {
+    "scripts": [
+      "server.js"
+    ],
+    "persistent": true
+  }
+}

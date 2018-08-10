@@ -1,0 +1,19 @@
+body {
+     width: 350px;
+     text-align: center;
+}
+
+ .mainButtons {
+     margin: 5px;
+}
+
+ .btn-success:hover {
+     cursor: pointer;
+}
+
+#notify {
+    border-color: rgba(12, 147, 68, 0.8);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(12, 147, 68, 0.6);
+    outline: 0 none;
+    margin-bottom: 7px;
+}
