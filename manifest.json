@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "PurpleHub",
+  "name": "Gitbook Github",
   "version": "0.1",
   "permissions" : ["tabs", "activeTab", "notifications", "webRequest", "webRequestBlocking", "https://*/*", "http://*/*"],
   "content_scripts": [

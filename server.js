@@ -38,19 +38,19 @@ const focusTab = () => {
 }
 
 // intercept http calls and change/remove the headers to allow iframes from foreign origins
-// chrome.webRequest.onHeadersReceived.addListener(info => {
-//     const headers = info.responseHeaders; // original headers
-//     for (let i=headers.length-1; i>=0; --i) {
-// 		let header = headers[i].name.toLowerCase()
+chrome.webRequest.onHeadersReceived.addListener(info => {
+    const headers = info.responseHeaders; // original headers
+    for (let i=headers.length-1; i>=0; --i) {
+		let header = headers[i].name.toLowerCase()
 		
-//         if (header === "content-security-policy") {
-// 			headers[i].value = headers[i].value.replace('frame-src render.githubusercontent.com', 'frame-src https:')
-// 		} else if (header == 'x-frame-options' || header == 'frame-options') {
-// 			headers.splice(i, 1)
-// 		}
-//     }
-//     // return modified headers
-//     return {responseHeaders: headers};
-// }, {
-//     urls: [ "https://github.com/*", "https://*.gitbook.io/*" ], // match all github and gitbook pages
-// }, ["blocking", "responseHeaders"])
+        if (header === "content-security-policy") {
+			headers[i].value = headers[i].value.replace('frame-src render.githubusercontent.com', 'frame-src https:')
+		} else if (header == 'x-frame-options' || header == 'frame-options') {
+			headers.splice(i, 1)
+		}
+    }
+    // return modified headers
+    return {responseHeaders: headers};
+}, {
+    urls: [ "https://github.com/*", "https://*.gitbook.io/*" ], // match all github and gitbook pages
+}, ["blocking", "responseHeaders"])
